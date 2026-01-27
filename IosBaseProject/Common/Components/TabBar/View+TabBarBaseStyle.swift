@@ -9,6 +9,14 @@ struct TabBarBaseStyleModifier: ViewModifier {
 			.tabViewStyle(.automatic)
 			.introspectTabBarController { tabBarController in
 				let tabBar = tabBarController.tabBar
+				
+				let appearance = UITabBarAppearance()
+				appearance.configureWithOpaqueBackground()
+				appearance.backgroundColor = UIColor(Color.neutral10)
+				
+				tabBar.standardAppearance = appearance
+				tabBar.scrollEdgeAppearance = appearance
+				
 				tabBar.layer.masksToBounds = false
 				tabBar.layer.shadowColor = UIColor.black.cgColor
 				tabBar.layer.shadowOpacity = 0.06
@@ -35,32 +43,40 @@ extension View {
 			.ignoresSafeArea()
 		
 		TabView {
-			VStack(spacing: 0) {
-				TopBarView(title: "Home")
-				Color.neutral40
-			}
-			.overlay(
-				Text("Home")
-					.font(.headline)
-			)
-			.tabItem {
-				Image(systemName: "house")
-				Text("Home")
-			}
+			SampleView(title: "Home")
+				.tabItem {
+					Image(systemName: "house")
+					Text("Home")
+				}
 			
 			VStack(spacing: 0) {
 				TopBarView(title: "Profile")
 				Color.neutral40
 			}
-			.overlay(
-				Text("Profile")
-					.font(.headline)
-			)
+			.frame(maxWidth: .infinity, maxHeight: .infinity)
 			.tabItem {
 				Image(systemName: "person")
 				Text("Profile")
 			}
 		}
 		.tabBarBaseStyle()
+	}
+}
+
+private struct SampleView: View {
+	let title: String
+	var body: some View {
+		VStack {
+			TopBarView(title: title)
+			Spacer()
+			ScrollView {
+				ForEach(1...100, id: \.self) { _ in
+					Text("Item")
+						.frame(maxWidth: .infinity, alignment: .leading)
+						.padding()
+						.cardStyle()
+				}
+			}
+		}
 	}
 }

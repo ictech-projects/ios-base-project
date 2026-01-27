@@ -18,7 +18,7 @@ struct ImageLoader: View {
 		) { phase in
 			switch phase {
 			case .empty:
-				Color.gray
+				Color.neutral50
 					.overlay(
 						ProgressView()
 							.progressViewStyle(.circular)
@@ -32,7 +32,7 @@ struct ImageLoader: View {
 					.frame(width: width, height: height)
 					
 			case .failure:
-				Color.gray
+				Color.neutral50
 					.overlay(
 						Image(systemName: "exclamationmark.circle")
 							.resizable()
@@ -42,7 +42,7 @@ struct ImageLoader: View {
 					)
 					.frame(width: width, height: height)
 			default:
-				Color.gray
+				Color.neutral50
 					.overlay(
 						Image(systemName: "exclamationmark.circle")
 							.resizable()
@@ -59,7 +59,17 @@ struct ImageLoader: View {
 }
 
 #Preview {
-	ImageLoader(path: "https://ictechnology.com.au/wp-content/uploads/2025/06/ICTechnology-stramline-your-office-IT.webp", width: 150, height: 120)
-		.clipShape(RoundedRectangle(cornerRadius: 10))
-		.clipped()
+	VStack {
+		ImageLoader(path: "https://hjk-staging.s3.ap-southeast-2.amazonaws.com/assets/pages/01K7E3P8THAGCQ6J5BD1FY4VH9.jpg", width: 150, height: 120)
+			.clipShape(RoundedRectangle(cornerRadius: 10))
+			.clipped()
+		
+		ImageLoader(path: "https://hjk-staging.s3.ap-southeast-2.amazonaws.com/assets/pages/invalid.jpg", width: 150, height: 120)
+			.clipShape(RoundedRectangle(cornerRadius: 10))
+			.clipped()
+		
+		ImageLoader(path: "", width: 150, height: 120)
+			.clipShape(RoundedRectangle(cornerRadius: 10))
+			.clipped()
+	}
 }
