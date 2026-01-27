@@ -8,6 +8,7 @@ struct OverlayCircularProgressView: View {
 		Group {
 			if show {
 				Color.black.opacity(0.5)
+					.background(.ultraThinMaterial)
 					.ignoresSafeArea()
 				
 				ProgressView()
@@ -21,8 +22,7 @@ struct OverlayCircularProgressView: View {
 #Preview {
 	ZStack {
 		Color.blue.ignoresSafeArea(edges: .all)
-		Text("Some background")
-			.font(.title)
+		PreviewHelperView()
 		OverlayCircularProgressView(show: true)
 	}
 }
