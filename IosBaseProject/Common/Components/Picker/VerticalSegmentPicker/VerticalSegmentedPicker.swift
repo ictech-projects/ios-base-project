@@ -59,7 +59,7 @@ struct VerticalSegmentedPicker<Item: VerticalSegmentedItem>: View {
 
 // MARK: - Example
 
-enum ExampleSegment: String, CaseIterable, Hashable {
+private enum ExampleSegment: String, CaseIterable, Hashable {
 	case personalDetails = "Personal Details"
 	case additionalInformation = "Additional Information"
 }
