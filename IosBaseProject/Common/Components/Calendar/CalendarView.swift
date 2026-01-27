@@ -60,7 +60,8 @@ struct CalendarView: View {
 						date: date,
 						leaveDate: $leaveDate,
 						selectedDates: $selectedDates,
-						currentMonth: currentMonth)
+						currentMonth: currentMonth
+					)
 					.onTapGesture {
 						let weekday = calendar.component(.weekday, from: date)
 						if weekday != 1 && weekday != 7 {
@@ -221,5 +222,12 @@ struct CalendarDateCell: View {
 }
 
 #Preview {
-	CalendarView(leaveDate: .constant([]), selectedDates: .constant([Date()]), calendarDates: .constant([Date()]))
+	CalendarView(
+		leaveDate: .constant([]),
+		selectedDates: .constant([Date()]),
+		calendarDates: .constant(
+			(0..<28)
+				.compactMap { Calendar.current.date(byAdding: .day, value: $0, to: Date()) }
+		)
+	)
 }
