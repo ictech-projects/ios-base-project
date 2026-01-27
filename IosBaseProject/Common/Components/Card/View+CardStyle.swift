@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension View {
-	func card() -> some View {
+	func cardStyle() -> some View {
 		modifier(CardModifier())
 	}
 }
@@ -28,14 +28,14 @@ struct CardModifier: ViewModifier {
 		Text("Hello")
 		Text("World")
 	}
-	.card()
+	.cardStyle()
 	.padding()
 }
 
 #Preview {
 	List {
 		Text("First Card")
-			.card()
+			.cardStyle()
 			.listRowSeparator(.hidden)
 			.listRowBackground(Color.clear)
 	}
@@ -50,5 +50,5 @@ struct CardModifier: ViewModifier {
 			Text("Build beautiful apps quickly.")
 		}
 	}
-	.card()
+	.cardStyle()
 }
