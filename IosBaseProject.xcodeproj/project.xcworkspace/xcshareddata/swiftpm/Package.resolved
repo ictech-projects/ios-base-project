@@ -1,0 +1,33 @@
+{
+  "originHash" : "d69fea196cb13d5dc841dc5f2a04fe77a6527944e18f5d49f010387e7b44613f",
+  "pins" : [
+    {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "revision" : "69faaefa7721fba9e434a52c16adf4329c9084db",
+        "version" : "4.6.0"
+      }
+    },
+    {
+      "identity" : "richtext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NuPlay/RichText.git",
+      "state" : {
+        "revision" : "50ab84fd9df8afad2060bc11d4fc8a41d8459cc6",
+        "version" : "3.0.2"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/timbersoftware/SwiftUI-Introspect.git",
+      "state" : {
+        "revision" : "732316ac5957675eac2ed8ef9c0a5b95a353f9ff",
+        "version" : "0.0.6"
+      }
+    }
+  ],
+  "version" : 3
+}
