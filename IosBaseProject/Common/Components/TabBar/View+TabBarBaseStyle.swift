@@ -30,8 +30,15 @@ extension View {
 // MARK: - SwiftUI Preview
 
 #Preview("Tab Bar Base Style") {
-	TabView {
-		Color.white
+	ZStack {
+		Color.gray.opacity(0.5)
+			.ignoresSafeArea()
+		
+		TabView {
+			VStack(spacing: 0) {
+				TopBarView(title: "Home")
+				Color.neutral40
+			}
 			.overlay(
 				Text("Home")
 					.font(.headline)
@@ -40,8 +47,11 @@ extension View {
 				Image(systemName: "house")
 				Text("Home")
 			}
-		
-		Color.white
+			
+			VStack(spacing: 0) {
+				TopBarView(title: "Profile")
+				Color.neutral40
+			}
 			.overlay(
 				Text("Profile")
 					.font(.headline)
@@ -50,6 +60,7 @@ extension View {
 				Image(systemName: "person")
 				Text("Profile")
 			}
+		}
+		.tabBarBaseStyle()
 	}
-	.tabBarBaseStyle()
 }

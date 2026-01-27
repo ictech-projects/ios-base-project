@@ -27,9 +27,22 @@
 		FDD926592F285B2600DDB3F3 /* IosBaseProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IosBaseProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FDD927032F28762F00DDB3F3 /* Exceptions for "IosBaseProject" folder in "IosBaseProject" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FDD9264B2F285B2500DDB3F3 /* IosBaseProject */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FDD9264E2F285B2500DDB3F3 /* IosBaseProject */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FDD927032F28762F00DDB3F3 /* Exceptions for "IosBaseProject" folder in "IosBaseProject" target */,
+			);
 			path = IosBaseProject;
 			sourceTree = "<group>";
 		};
@@ -348,6 +361,7 @@
 				DEVELOPMENT_TEAM = APL5QSXJ32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IosBaseProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -381,6 +395,7 @@
 				DEVELOPMENT_TEAM = APL5QSXJ32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IosBaseProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
