@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LabeledPickerSectionView: View {
+struct TitledOptionField: View {
 	let title: Text
 	let value: String
 	let isLoading: Bool
@@ -41,18 +41,24 @@ struct LabeledPickerSectionView: View {
 			
 			
 			if isDisabled {
-				content
+				OptionField(value: value, height: height, isDisabled: isDisabled)
 			} else {
 				Button {
 					action?()
 				} label: {
-					content
+					OptionField(value: value, height: height, isDisabled: isDisabled)
 				}
 			}
 		}
 	}
+}
+
+struct OptionField: View {
+	let value: String
+	let height: CGFloat?
+	let isDisabled: Bool
 	
-	private var content: some View {
+	var body: some View {
 		HStack {
 			Text(value)
 				.font(.baseStyle(size: 16, weight: .regular))
@@ -76,8 +82,8 @@ struct LabeledPickerSectionView: View {
 	}
 }
 
-#Preview {
-	LabeledPickerSectionView(
+#Preview("TitledOptionField") {
+	TitledOptionField(
 		title: Text("State"),
 		value: "Select state",
 		isLoading: false,
@@ -87,7 +93,7 @@ struct LabeledPickerSectionView: View {
 	.padding()
 	.background(.white)
 	
-	LabeledPickerSectionView(
+	TitledOptionField(
 		title: Text("State"),
 		value: "Select state",
 		isLoading: true,
@@ -97,4 +103,12 @@ struct LabeledPickerSectionView: View {
 	)
 	.padding()
 	.background(.white)
+}
+
+#Preview("OptionField") {
+	OptionField(
+		value: "a value",
+		height: nil,
+		isDisabled: false
+	)
 }
