@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		922B77352F2C428F001B4437 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 922B77342F2C428F001B4437 /* CombineMoya */; };
+		922B77372F2C428F001B4437 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 922B77362F2C428F001B4437 /* Moya */; };
+		922B77392F2C428F001B4437 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 922B77382F2C428F001B4437 /* ReactiveMoya */; };
+		922B773B2F2C428F001B4437 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 922B773A2F2C428F001B4437 /* RxMoya */; };
 		FDD926B92F285C8A00DDB3F3 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = FDD926B82F285C8A00DDB3F3 /* RichText */; };
 		FDD926BC2F285CDA00DDB3F3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FDD926BB2F285CDA00DDB3F3 /* Lottie */; };
 		FDD927012F28702B00DDB3F3 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = FDD927002F28702B00DDB3F3 /* Introspect */; };
@@ -60,7 +64,11 @@
 			files = (
 				FDD926B92F285C8A00DDB3F3 /* RichText in Frameworks */,
 				FDD927012F28702B00DDB3F3 /* Introspect in Frameworks */,
+				922B77352F2C428F001B4437 /* CombineMoya in Frameworks */,
+				922B77372F2C428F001B4437 /* Moya in Frameworks */,
+				922B773B2F2C428F001B4437 /* RxMoya in Frameworks */,
 				FDD926BC2F285CDA00DDB3F3 /* Lottie in Frameworks */,
+				922B77392F2C428F001B4437 /* ReactiveMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +123,10 @@
 				FDD926B82F285C8A00DDB3F3 /* RichText */,
 				FDD926BB2F285CDA00DDB3F3 /* Lottie */,
 				FDD927002F28702B00DDB3F3 /* Introspect */,
+				922B77342F2C428F001B4437 /* CombineMoya */,
+				922B77362F2C428F001B4437 /* Moya */,
+				922B77382F2C428F001B4437 /* ReactiveMoya */,
+				922B773A2F2C428F001B4437 /* RxMoya */,
 			);
 			productName = IosBaseProject;
 			productReference = FDD9264C2F285B2500DDB3F3 /* IosBaseProject.app */;
@@ -175,6 +187,7 @@
 				FDD926B72F285C8A00DDB3F3 /* XCRemoteSwiftPackageReference "RichText" */,
 				FDD926BA2F285CDA00DDB3F3 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				FDD926FF2F28702B00DDB3F3 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				922B77332F2C428F001B4437 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FDD9264D2F285B2500DDB3F3 /* Products */;
@@ -506,6 +519,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		922B77332F2C428F001B4437 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		FDD926B72F285C8A00DDB3F3 /* XCRemoteSwiftPackageReference "RichText" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NuPlay/RichText.git";
@@ -533,6 +554,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		922B77342F2C428F001B4437 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 922B77332F2C428F001B4437 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		922B77362F2C428F001B4437 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 922B77332F2C428F001B4437 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		922B77382F2C428F001B4437 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 922B77332F2C428F001B4437 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		922B773A2F2C428F001B4437 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 922B77332F2C428F001B4437 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
 		FDD926B82F285C8A00DDB3F3 /* RichText */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FDD926B72F285C8A00DDB3F3 /* XCRemoteSwiftPackageReference "RichText" */;
