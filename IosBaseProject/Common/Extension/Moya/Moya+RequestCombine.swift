@@ -14,7 +14,12 @@ extension MoyaProvider {
 	func request<T: Codable>(_ target: Target, model: T.Type, with dateDecodeStrategy: DateFormat = .yyyyMMdd) -> AnyPublisher<T, ErrorResponse> {
 		self.requestPublisher(target)
 			.mapError({ moyaError in
-				return ErrorResponse(statusCode: -1, message: moyaError.errorDescription, data: nil)
+				return ErrorResponse(
+					success: false,
+					statusCode: -1,
+					message: moyaError.errorDescription,
+					errors: nil
+				)
 			})
 			.flatMap({ (response) -> AnyPublisher<T, ErrorResponse> in
 				let errorCode = response.statusCode
@@ -33,7 +38,13 @@ extension MoyaProvider {
 					}
 				} catch {
 					print(error)
-					let baseError = ErrorResponse(statusCode: -1, message: error.localizedDescription, data: nil)
+					let baseError = ErrorResponse(
+						success: false,
+						statusCode: -1,
+						message: error.localizedDescription,
+						errors: nil
+					)
+					
 					return Fail(error: baseError).eraseToAnyPublisher()
 				}
 			})

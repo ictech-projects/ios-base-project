@@ -55,16 +55,18 @@ extension MoyaProvider {
 		} catch let error as MoyaError {
 			// Convert MoyaError → ErrorResponse
 			throw ErrorResponse(
+				success: false,
 				statusCode: -1,
 				message: error.errorDescription ?? "Unknown error",
-				data: nil
+				errors: nil
 			)
 		} catch {
 			// Other errors
 			throw ErrorResponse(
+				success: false,
 				statusCode: -1,
 				message: error.localizedDescription,
-				data: nil
+				errors: nil
 			)
 		}
 	}
