@@ -8,6 +8,30 @@ Most core components are already included as part of the starter project and are
 
 ---
 
+## Starting a New Project
+
+Follow these steps when creating a new project from this base template:
+
+1. Clone or download this repository
+2. Remove the existing `.git` folder
+3. Initialize a new Git repository
+4. Open the project and ensure it builds successfully (`Cmd + B`)
+5. Rename all project contexts properly:
+   - App name
+   - Project name
+   - Root folders
+   - Target names (main & test)
+   - Entitlements file
+
+   Refer to:  
+   https://stackoverflow.com/questions/33370175/how-do-i-completely-rename-an-xcode-project-i-e-inclusive-of-folders
+
+6. Build again to verify the setup
+7. Configure CI/CD using Xcode Cloud and the provided `ci_scripts`
+8. Set up SonarQube when code quality analysis is required
+
+---
+
 ## Project Structure
 
 Below is the high-level structure of the project and its main responsibilities:
@@ -207,29 +231,5 @@ These steps are intended to be executed using **Xcode Cloud** or a compatible CI
 
 `GoogleService-Info.plist` is included as a placeholder.  
 Each application that uses Firebase services (such as FCM) must replace this file with the configuration provided by Firebase for that specific app.
-
----
-
-## Starting a New Project
-
-Follow these steps when creating a new project from this base template:
-
-1. Clone or download this repository
-2. Remove the existing `.git` folder
-3. Initialize a new Git repository
-4. Open the project and ensure it builds successfully (`Cmd + B`)
-5. Rename all project contexts properly:
-   - App name
-   - Project name
-   - Root folders
-   - Target names (main & test)
-   - Entitlements file
-
-   Refer to:  
-   https://stackoverflow.com/questions/33370175/how-do-i-completely-rename-an-xcode-project-i-e-inclusive-of-folders
-
-6. Build again to verify the setup
-7. Configure CI/CD using Xcode Cloud and the provided `ci_scripts`
-8. Set up SonarQube when code quality analysis is required
 
 ---
