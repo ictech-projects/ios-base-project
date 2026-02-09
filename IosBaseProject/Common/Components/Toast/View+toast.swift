@@ -40,19 +40,19 @@ extension View {
 /// - simple text message
 /// - fixed display duration
 struct ToastData: Equatable {
-	let message: String
+	let text: Text
 	let duration: TimeInterval
 	
 	/// Creates a toast with a message and optional duration.
 	///
 	/// - Parameters:
-	///   - message: Text displayed in the toast.
+	///   - text: Text displayed in the toast.
 	///   - duration: How long the toast stays visible (default: 2 seconds).
 	init(
-		message: String,
+		text: Text,
 		duration: TimeInterval = 2
 	) {
-		self.message = message
+		self.text = text
 		self.duration = duration
 	}
 }
@@ -66,10 +66,10 @@ struct ToastData: Equatable {
 /// - high contrast text
 /// - subtle shadow
 struct ToastView: View {
-	let message: String
+	let text: Text
 	
 	var body: some View {
-		Text(message)
+		text
 			.font(.baseStyle(size: 14, weight: .medium))
 			.foregroundStyle(.white)
 			.padding(.horizontal, 16)
@@ -107,7 +107,7 @@ struct ToastModifier: ViewModifier {
 				VStack {
 					Spacer()
 					
-					ToastView(message: toast.message)
+					ToastView(text: toast.text)
 						.padding(.bottom, 40)
 						.opacity(isVisible ? 1 : 0)
 						.transition(.move(edge: .bottom))
@@ -145,7 +145,7 @@ struct ToastPreview: View {
 		VStack(spacing: 20) {
 			Button("Show Toast") {
 				withAnimation {
-					toast = ToastData(message: "Saved successfully")
+					toast = ToastData(text: Text("Saved successfully"))
 				}
 			}
 		}
