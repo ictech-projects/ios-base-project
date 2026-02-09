@@ -1,5 +1,5 @@
 //
-//  CountrySelectionModalSheet.swift
+//  CountrySelectionModalSheetView.swift
 //  BINAH
 //
 //  Created by Arifin Firdaus on 06/01/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountrySelectionModalSheet: View {
+struct CountrySelectionModalSheetView: View {
 	@Environment(\.dismiss) var dismiss
 	@ObservedObject var viewModel: CountrySelectionModalSheetViewModel
 	@State private var searchText = ""
@@ -108,7 +108,7 @@ struct CountrySelectionModalSheet: View {
 }
 
 #Preview {
-	CountrySelectionModalSheet(
+	CountrySelectionModalSheetView(
 		viewModel: CountrySelectionModalSheetViewModel(
 			delegate: PreviewCountrySelectionDelegate()
 		)
