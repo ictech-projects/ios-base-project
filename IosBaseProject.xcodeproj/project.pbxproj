@@ -11,6 +11,8 @@
 		922B77372F2C428F001B4437 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 922B77362F2C428F001B4437 /* Moya */; };
 		922B77392F2C428F001B4437 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 922B77382F2C428F001B4437 /* ReactiveMoya */; };
 		922B773B2F2C428F001B4437 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 922B773A2F2C428F001B4437 /* RxMoya */; };
+		FDC2801E2F39BB6600FF04BE /* CountryKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDC2801D2F39BB6600FF04BE /* CountryKit */; };
+		FDC284462F39BC1200FF04BE /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FDC284452F39BC1200FF04BE /* SDWebImageSwiftUI */; };
 		FDD926B92F285C8A00DDB3F3 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = FDD926B82F285C8A00DDB3F3 /* RichText */; };
 		FDD926BC2F285CDA00DDB3F3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FDD926BB2F285CDA00DDB3F3 /* Lottie */; };
 		FDD927012F28702B00DDB3F3 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = FDD927002F28702B00DDB3F3 /* Introspect */; };
@@ -65,9 +67,11 @@
 				FDD926B92F285C8A00DDB3F3 /* RichText in Frameworks */,
 				FDD927012F28702B00DDB3F3 /* Introspect in Frameworks */,
 				922B77352F2C428F001B4437 /* CombineMoya in Frameworks */,
+				FDC284462F39BC1200FF04BE /* SDWebImageSwiftUI in Frameworks */,
 				922B77372F2C428F001B4437 /* Moya in Frameworks */,
 				922B773B2F2C428F001B4437 /* RxMoya in Frameworks */,
 				FDD926BC2F285CDA00DDB3F3 /* Lottie in Frameworks */,
+				FDC2801E2F39BB6600FF04BE /* CountryKit in Frameworks */,
 				922B77392F2C428F001B4437 /* ReactiveMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +131,8 @@
 				922B77362F2C428F001B4437 /* Moya */,
 				922B77382F2C428F001B4437 /* ReactiveMoya */,
 				922B773A2F2C428F001B4437 /* RxMoya */,
+				FDC2801D2F39BB6600FF04BE /* CountryKit */,
+				FDC284452F39BC1200FF04BE /* SDWebImageSwiftUI */,
 			);
 			productName = IosBaseProject;
 			productReference = FDD9264C2F285B2500DDB3F3 /* IosBaseProject.app */;
@@ -188,6 +194,8 @@
 				FDD926BA2F285CDA00DDB3F3 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				FDD926FF2F28702B00DDB3F3 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				922B77332F2C428F001B4437 /* XCRemoteSwiftPackageReference "Moya" */,
+				FDC2801C2F39BB6600FF04BE /* XCRemoteSwiftPackageReference "CountryKit" */,
+				FDC284442F39BC1100FF04BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FDD9264D2F285B2500DDB3F3 /* Products */;
@@ -527,6 +535,22 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		FDC2801C2F39BB6600FF04BE /* XCRemoteSwiftPackageReference "CountryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alemar11/CountryKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+		FDC284442F39BC1100FF04BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.4;
+			};
+		};
 		FDD926B72F285C8A00DDB3F3 /* XCRemoteSwiftPackageReference "RichText" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NuPlay/RichText.git";
@@ -573,6 +597,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 922B77332F2C428F001B4437 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		FDC2801D2F39BB6600FF04BE /* CountryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDC2801C2F39BB6600FF04BE /* XCRemoteSwiftPackageReference "CountryKit" */;
+			productName = CountryKit;
+		};
+		FDC284452F39BC1200FF04BE /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDC284442F39BC1100FF04BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		FDD926B82F285C8A00DDB3F3 /* RichText */ = {
 			isa = XCSwiftPackageProductDependency;
