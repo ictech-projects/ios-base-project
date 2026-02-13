@@ -66,3 +66,35 @@ private extension CountryFlagView {
 			.foregroundStyle(.secondary)
 	}
 }
+
+// MARK: - Preview
+
+#Preview("CountryFlagView - All Scenarios") {
+	VStack(spacing: 20) {
+		
+		// 1. Valid URL
+		CountryFlagView(
+			urlString: "https://flagcdn.com/w40/id.png",
+			flagImage: nil
+		)
+		
+		// 2. Invalid URL (will trigger fallback)
+		CountryFlagView(
+			urlString: "https://invalid-url.com/flag.png",
+			flagImage: nil
+		)
+		
+		// 3. Local UIImage only
+		CountryFlagView(
+			urlString: nil,
+			flagImage: UIImage(systemName: "globe")
+		)
+		
+		// 4. No URL and no UIImage (placeholder)
+		CountryFlagView(
+			urlString: nil,
+			flagImage: nil
+		)
+	}
+	.padding()
+}
