@@ -54,12 +54,13 @@ struct PrimaryButton<Label: View>: View {
 	enum CustomButtonSize {
 		case small
 		case medium
+		case mediumIntrinsic
 		case large
 		
 		var height: CGFloat {
 			switch self {
 			case .small: return 28
-			case .medium: return 42
+			case .medium, .mediumIntrinsic: return 42
 			case .large: return 56
 			}
 		}
@@ -67,14 +68,14 @@ struct PrimaryButton<Label: View>: View {
 		var font: Font {
 			switch self {
 			case .small: return .baseStyle(size: 10, weight: .bold)
-			case .medium: return .baseStyle(size: 14, weight: .bold)
+			case .medium, .mediumIntrinsic: return .baseStyle(size: 14, weight: .bold)
 			case .large: return .baseStyle(size: 16, weight: .bold)
 			}
 		}
 		
 		var shouldStretch: Bool {
 			switch self {
-			case .small: return false
+			case .small, .mediumIntrinsic: return false
 			case .medium, .large: return true
 			}
 		}
@@ -90,6 +91,10 @@ struct PrimaryButton<Label: View>: View {
 		
 		PrimaryButton(size: .small, isDisabled: true, action: {}) {
 			Text("Small Disabled")
+		}
+		
+		PrimaryButton(size: .mediumIntrinsic, action: {}) {
+			Text("Medium Intrinsic Enabled")
 		}
 		
 		PrimaryButton(size: .medium, action: {}) {
