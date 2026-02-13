@@ -63,7 +63,7 @@ struct LaunchScreenView: View {
 					ProgressView()
 						.progressViewStyle(.circular)
 						.scaleEffect(1.2)
-						.tint(.black)
+						.tint(.secondary)
 						.padding(.bottom, geometry.size.height / 4)
 				}
 				.padding()
