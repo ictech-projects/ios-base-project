@@ -1,6 +1,6 @@
 //
 //  ErrorResponse.swift
-//  BINAH
+// IosBaseProject
 //
 //  Created by Ewide Dev 5 on 10/12/25.
 //
