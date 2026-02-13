@@ -37,24 +37,21 @@ struct LaunchScreenView: View {
 			ZStack {
 				
 				// TODO: Background placeholder image (replace with your asset)
-				Image("launch_background_placeholder")
+				Image(.launchScreen)
 					.resizable()
-					.scaledToFill()
-					.frame(
-						width: geometry.size.width,
-						height: geometry.size.height
-					)
-					.clipped()
 					.ignoresSafeArea()
+					
 				
 				VStack {
 					Spacer()
 					
 					Text("Programmatic Launch Screen")
+						.foregroundStyle(.neutral10)
 						.font(.headline)
 						.padding(.bottom, 8)
 					
 					Text("Preparing application...")
+						.foregroundStyle(.neutral30)
 						.font(.subheadline)
 					
 					Spacer()
@@ -63,7 +60,7 @@ struct LaunchScreenView: View {
 					ProgressView()
 						.progressViewStyle(.circular)
 						.scaleEffect(1.2)
-						.tint(.secondary)
+						.tint(.neutral60)
 						.padding(.bottom, geometry.size.height / 4)
 				}
 				.padding()
