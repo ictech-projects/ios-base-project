@@ -1,0 +1,10 @@
+{
+  "enabledPlugins": {
+    "data-layer@ios-claude-skills": true,
+    "security-review@ios-claude-skills": true,
+    "swiftui-reviewer@ios-claude-skills": true,
+    "swiftui-view-gen@ios-claude-skills": true,
+    "unit-testing@ios-claude-skills": true,
+    "figma@claude-plugins-official": true
+  }
+}
