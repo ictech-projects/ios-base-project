@@ -67,6 +67,7 @@ struct BackButton: View {
 		Button(action: backButton.1) {
 			backButton.0
 				.tint(.neutral90)
+				.accessibilityLabel("Back")
 		}
 	}
 }

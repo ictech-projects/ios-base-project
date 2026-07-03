@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CountrySelectionModalSheetView: View {
-	@Environment(\.dismiss) var dismiss
+	@Environment(\.dismiss) private var dismiss
 	@ObservedObject var viewModel: CountrySelectionModalSheetViewModel
 	@State private var searchText = ""
 	
@@ -16,7 +16,6 @@ struct CountrySelectionModalSheetView: View {
 		let raw = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
 		if raw.isEmpty { return viewModel.countries }
 		
-		let lower = raw.lowercased()
 		let isNumeric = raw.allSatisfy { $0.isNumber }
 		let hasPlus = raw.contains("+")
 		
@@ -29,14 +28,13 @@ struct CountrySelectionModalSheetView: View {
 		
 		if isNumeric {
 			return viewModel.countries.filter { country in
-				let code = (country.dialCode ?? "").replacingOccurrences(of: "+", with: "")
+				let code = (country.dialCode ?? "").replacing("+", with: "")
 				return code.contains(raw)
 			}
 		}
-		
+
 		return viewModel.countries.filter { country in
-			let name = (country.name ?? "").lowercased()
-			return name.contains(lower)
+			(country.name ?? "").localizedStandardContains(raw)
 		}
 	}
 	

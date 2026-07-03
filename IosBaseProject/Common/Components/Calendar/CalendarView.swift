@@ -4,7 +4,7 @@ struct CalendarView: View {
 	@Binding var leaveDate: [Int]
 	@Binding var selectedDates: [Date]
 	@Binding var calendarDates: [Date]
-	@State private var currentMonth: Date = Date()
+	@State private var currentMonth: Date = .now
 	
 	private let calendar = Calendar(identifier: .gregorian)
 	private let dateFormatter: DateFormatter = {
@@ -56,18 +56,18 @@ struct CalendarView: View {
 			// Dates Grid
 			LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 5) {
 				ForEach(calendarDates, id: \.self) { date in
-					CalendarDateCell(
-						date: date,
-						leaveDate: $leaveDate,
-						selectedDates: $selectedDates,
-						currentMonth: currentMonth
-					)
-					.onTapGesture {
-						let weekday = calendar.component(.weekday, from: date)
-						if weekday != 1 && weekday != 7 {
-							handleDateTap(date)
-						}
+					Button {
+						handleDateTap(date)
+					} label: {
+						CalendarDateCell(
+							date: date,
+							leaveDate: $leaveDate,
+							selectedDates: $selectedDates,
+							currentMonth: currentMonth
+						)
 					}
+					.disabled(isWeekend(date))
+					.buttonStyle(.plain)
 				}
 			}
 		}
@@ -78,6 +78,11 @@ struct CalendarView: View {
 		}
 	}
 	
+	private func isWeekend(_ date: Date) -> Bool {
+		let weekday = calendar.component(.weekday, from: date)
+		return weekday == 1 || weekday == 7
+	}
+
 	// MARK: - Navigation
 	private func nextMonth() {
 		if let next = calendar.date(byAdding: .month, value: 1, to: currentMonth) {
@@ -140,21 +145,21 @@ struct CalendarView: View {
 		let components = calendar.dateComponents([.year, .month], from: month)
 		guard let startOfMonth = calendar.date(from: components) else { return }
 		
-		let range = calendar.range(of: .day, in: .month, for: startOfMonth)!
+		guard let range = calendar.range(of: .day, in: .month, for: startOfMonth) else { return }
 		let numDays = range.count
-		
+
 		let firstWeekday = calendar.component(.weekday, from: startOfMonth)
 		let offset = (firstWeekday + 5) % 7 // Make it start on Monday
-		
+
 		// Add leading empty days from previous month
 		for idx in 0..<offset {
-			let date = calendar.date(byAdding: .day, value: idx - offset, to: startOfMonth)!
+			guard let date = calendar.date(byAdding: .day, value: idx - offset, to: startOfMonth) else { continue }
 			calendarDates.append(date)
 		}
-		
+
 		// Add actual month days
 		for day in 0..<numDays {
-			let date = calendar.date(byAdding: .day, value: day, to: startOfMonth)!
+			guard let date = calendar.date(byAdding: .day, value: day, to: startOfMonth) else { continue }
 			calendarDates.append(date)
 		}
 	}

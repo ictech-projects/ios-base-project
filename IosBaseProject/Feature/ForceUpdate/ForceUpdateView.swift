@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ForceUpdateView: View {
+	@Environment(\.openURL) private var openURL
+
 	var body: some View {
 		ZStack {
 			//			TODO: use background
@@ -33,7 +35,7 @@ struct ForceUpdateView: View {
 				
 				PrimaryButton(size: .mediumIntrinsic) {
 					if let url = URL(string: "https://apps.apple.com/us/app/app_name/some-id") {
-						UIApplication.shared.open(url)
+						openURL(url)
 					}
 				} label: {
 					Text("Update Now")

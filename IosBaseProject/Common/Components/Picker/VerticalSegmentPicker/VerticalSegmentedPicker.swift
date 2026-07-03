@@ -39,13 +39,13 @@ struct VerticalSegmentedPicker<Item: VerticalSegmentedItem>: View {
 						RoundedRectangle(cornerRadius: 12)
 							.fill(selection == item ? Color.neutral10 : .clear)
 					)
-					.overlay(
+					.overlay {
 						RoundedRectangle(cornerRadius: 12)
 							.stroke(
 								selection == item ? Color.neutral40 : .clear,
 								lineWidth: 1
 							)
-					)
+					}
 				}
 			}
 		}

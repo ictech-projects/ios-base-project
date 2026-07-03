@@ -31,10 +31,10 @@ struct SingleDatePickerView: View {
 
 #Preview("Single Date Picker") {
 	SingleDatePickerView(
-		selection: .constant(Date()),
+		selection: .constant(Date.now),
 		range: {
-			let start = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
-			let end = Calendar.current.date(byAdding: .year, value: 1, to: Date())!
+			let start = Calendar.current.date(byAdding: .year, value: -1, to: Date.now)!
+			let end = Calendar.current.date(byAdding: .year, value: 1, to: Date.now)!
 			return start...end
 		}(),
 		onDoneTapped: {}
@@ -42,12 +42,12 @@ struct SingleDatePickerView: View {
 }
 
 private struct SingleDatePickerPreviewSheet: View {
-	@State private var selectedDate = Date()
+	@State private var selectedDate = Date.now
 	@State private var showSheet = false
 	
 	private var dateRange: ClosedRange<Date> {
-		let start = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
-		let end = Calendar.current.date(byAdding: .year, value: 1, to: Date())!
+		let start = Calendar.current.date(byAdding: .year, value: -1, to: Date.now)!
+		let end = Calendar.current.date(byAdding: .year, value: 1, to: Date.now)!
 		return start...end
 	}
 	

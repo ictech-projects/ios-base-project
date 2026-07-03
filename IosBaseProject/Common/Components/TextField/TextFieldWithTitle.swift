@@ -58,43 +58,42 @@ struct TextFieldWithTitle: ViewModifier {
 			
 			HStack {
 				if let leftIcon {
-					leftIcon
-						.renderingMode(.template)
-						.resizable()
-						.scaledToFit()
-						.frame(width: 24)
-						.foregroundStyle(leftIconColor)
-						.onTapGesture {
-							if let onLeftIconPressed {
-								onLeftIconPressed()
-							}
-						}
+					Button {
+						onLeftIconPressed?()
+					} label: {
+						leftIcon
+							.renderingMode(.template)
+							.resizable()
+							.scaledToFit()
+							.frame(width: 24)
+							.foregroundStyle(leftIconColor)
+					}
+					.buttonStyle(.plain)
 				}
 				
 				content
 					.foregroundStyle(isDisabled ? .neutral60 : .neutral90)
 				
 				if let rightIcon {
-					rightIcon
-						.renderingMode(.template)
-						.resizable()
-						.scaledToFit()
-						.frame(width: 24)
-						.foregroundStyle(rightIconColor)
-						.onTapGesture {
-							if let onRightIconPressed {
-								onRightIconPressed()
-							}
-						}
+					Button {
+						onRightIconPressed?()
+					} label: {
+						rightIcon
+							.renderingMode(.template)
+							.resizable()
+							.scaledToFit()
+							.frame(width: 24)
+							.foregroundStyle(rightIconColor)
+					}
+					.buttonStyle(.plain)
 				}
 			}
 			.padding(10)
 			.frame(height: 48)
-			.background(content: {
+			.background {
 				RoundedRectangle(cornerRadius: 8)
-					.foregroundStyle(backgroundColor)
-					.foregroundStyle(hasError ? Color.dangerMain : strokeColor)
-			})
+					.foregroundStyle(hasError ? Color.dangerMain : backgroundColor)
+			}
 			.overlay {
 				RoundedRectangle(cornerRadius: 8)
 					.stroke(lineWidth: 1)

@@ -21,6 +21,7 @@ struct TopBarView: View {
 								.resizable()
 								.scaledToFit()
 								.frame(width: 24)
+								.accessibilityLabel("Back")
 						}
 						
 						Spacer()

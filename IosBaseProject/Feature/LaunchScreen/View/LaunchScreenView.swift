@@ -30,7 +30,7 @@ import SwiftUI
 /// It is shown immediately after the system launch screen.
 struct LaunchScreenView: View {
 	
-	@StateObject var viewModel = LaunchScreenViewModel()
+	@StateObject private var viewModel = LaunchScreenViewModel()
 	
 	var body: some View {
 		GeometryReader { geometry in
