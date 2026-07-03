@@ -24,10 +24,10 @@ struct OutlinedButton: View {
 				RoundedRectangle(cornerRadius: 8)
 					.fill(Color.neutral10)
 			)
-			.overlay(
+			.overlay {
 				RoundedRectangle(cornerRadius: 8)
 					.stroke(Color.neutral90, lineWidth: 1)
-			)
+			}
 		}
 		.buttonStyle(.plain)
 	}

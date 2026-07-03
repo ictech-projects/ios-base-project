@@ -35,10 +35,10 @@ struct TagView: View {
 			RoundedRectangle(cornerRadius: 6)
 				.fill(backgroundColor)
 		)
-		.overlay(
+		.overlay {
 			RoundedRectangle(cornerRadius: 6)
 				.stroke(borderColor, lineWidth: 1)
-		)
+		}
 	}
 	
 	private var textColor: Color {

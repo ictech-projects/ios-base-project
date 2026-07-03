@@ -34,7 +34,8 @@ struct MainClockButton: View {
 				withAnimation(.bouncy) {
 					animateRelease = true
 				}
-				DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+				Task {
+					try? await Task.sleep(for: .seconds(0.15))
 					withAnimation(.bouncy) {
 						animateRelease = false
 					}

@@ -112,24 +112,19 @@ struct ToastModifier: ViewModifier {
 						.opacity(isVisible ? 1 : 0)
 						.transition(.move(edge: .bottom))
 				}
-				.onAppear {
-					// Fade in
+				.task {
 					withAnimation(.easeOut(duration: 0.25)) {
 						isVisible = true
 					}
-					
-					// Stay visible
-					DispatchQueue.main.asyncAfter(deadline: .now() + toast.duration) {
-						// Fade out
-						withAnimation(.easeIn(duration: 0.25)) {
-							isVisible = false
-						}
-						
-						// Remove after fade completes
-						DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-							self.toast = nil
-						}
+
+					try? await Task.sleep(for: .seconds(toast.duration))
+
+					withAnimation(.easeIn(duration: 0.25)) {
+						isVisible = false
 					}
+
+					try? await Task.sleep(for: .seconds(0.25))
+					self.toast = nil
 				}
 			}
 		}

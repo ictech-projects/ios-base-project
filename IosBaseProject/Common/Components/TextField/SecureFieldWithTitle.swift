@@ -55,34 +55,34 @@ struct SecureFieldWithTitle: ViewModifier {
 			
 			HStack {
 				if let leftIcon {
-					leftIcon
-						.renderingMode(.template)
-						.resizable()
-						.scaledToFit()
-						.frame(width: 24)
-						.foregroundStyle(leftIconColor)
-						.onTapGesture {
-							if let onLeftIconPressed {
-								onLeftIconPressed()
-							}
-						}
+					Button {
+						onLeftIconPressed?()
+					} label: {
+						leftIcon
+							.renderingMode(.template)
+							.resizable()
+							.scaledToFit()
+							.frame(width: 24)
+							.foregroundStyle(leftIconColor)
+					}
+					.buttonStyle(.plain)
 				}
 				
 				content
 					.foregroundStyle(.neutral100)
 				
 				if let rightIcon {
-					rightIcon
-						.renderingMode(.template)
-						.resizable()
-						.scaledToFit()
-						.frame(width: 24)
-						.foregroundStyle(rightIconColor)
-						.onTapGesture {
-							if let onRightIconPressed {
-								onRightIconPressed()
-							}
-						}
+					Button {
+						onRightIconPressed?()
+					} label: {
+						rightIcon
+							.renderingMode(.template)
+							.resizable()
+							.scaledToFit()
+							.frame(width: 24)
+							.foregroundStyle(rightIconColor)
+					}
+					.buttonStyle(.plain)
 				}
 			}
 			.padding(10)

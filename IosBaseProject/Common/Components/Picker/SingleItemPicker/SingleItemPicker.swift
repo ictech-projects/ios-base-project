@@ -10,12 +10,12 @@ import SwiftUI
 struct SingleItemPicker<Item, Content>: View where Item: Hashable, Content: View {
 	@Binding var selection: Item?
 	let title: String?
-	let content: () -> Content
-	
-	init(selection: Binding<Item?>, title: String? = nil, content: @escaping () -> Content) {
+	@ViewBuilder let content: Content
+
+	init(selection: Binding<Item?>, title: String? = nil, @ViewBuilder content: () -> Content) {
 		self._selection = selection
 		self.title = title
-		self.content = content
+		self.content = content()
 	}
 	
 	var body: some View {
@@ -27,7 +27,7 @@ struct SingleItemPicker<Item, Content>: View where Item: Hashable, Content: View
 			}
 			
 			Menu {
-				Picker("", selection: $selection, content: content)
+				Picker("", selection: $selection) { content }
 			} label: {
 				HStack {
 					Group {

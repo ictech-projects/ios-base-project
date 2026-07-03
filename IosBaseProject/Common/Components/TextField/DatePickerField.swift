@@ -44,7 +44,6 @@ struct DatePickerField: View {
 		.background(
 			RoundedRectangle(cornerRadius: 8)
 				.foregroundStyle(.clear)
-				.foregroundStyle(.neutral60)
 		)
 		.overlay {
 			RoundedRectangle(cornerRadius: 8)

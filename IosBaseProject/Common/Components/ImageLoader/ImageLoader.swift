@@ -19,11 +19,11 @@ struct ImageLoader: View {
 			switch phase {
 			case .empty:
 				Color.neutral50
-					.overlay(
+					.overlay {
 						ProgressView()
 							.progressViewStyle(.circular)
 							.tint(.white)
-					)
+					}
 					.frame(width: width, height: height)
 			case .success(let image):
 				image
@@ -33,23 +33,23 @@ struct ImageLoader: View {
 					
 			case .failure:
 				Color.neutral50
-					.overlay(
+					.overlay {
 						Image(systemName: "exclamationmark.circle")
 							.resizable()
 							.scaledToFit()
 							.frame(width: width/3)
 							.foregroundStyle(.white)
-					)
+					}
 					.frame(width: width, height: height)
 			default:
 				Color.neutral50
-					.overlay(
+					.overlay {
 						Image(systemName: "exclamationmark.circle")
 							.resizable()
 							.scaledToFit()
 							.frame(width: width/3)
 							.foregroundStyle(.white)
-					)
+					}
 					.frame(width: width, height: height)
 			}
 		}

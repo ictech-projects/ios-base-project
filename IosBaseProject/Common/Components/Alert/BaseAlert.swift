@@ -34,9 +34,8 @@ struct BaseAlert: ViewModifier {
 	}
 	
 	func body(content: Content) -> some View {
-		content.overlay(
-			Group {
-				if isPresented {
+		content.overlay {
+			if isPresented {
 					Color.black
 						.opacity(0.75)
 						.ignoresSafeArea()
@@ -96,7 +95,7 @@ struct BaseAlert: ViewModifier {
 							}
 							.padding(.top, 24)
 							.padding([.horizontal, .bottom], 20)
-							.background(Color.white)
+							.background(Color(.systemBackground))
 							.clipShape(RoundedRectangle(cornerRadius: 12))
 							.padding()
 							
@@ -106,8 +105,7 @@ struct BaseAlert: ViewModifier {
 						Spacer()
 					}
 				}
-			}
-		)
+		}
 	}
 }
 
